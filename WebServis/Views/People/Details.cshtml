@@ -1,0 +1,96 @@
+﻿@model WebServis.DAL.Entities.Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameStyle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameStyle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Suffix)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Suffix)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailPromotion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailPromotion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalContactInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalContactInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Demographics)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Demographics)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rowguid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rowguid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessEntity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BusinessEntity.BusinessEntityId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BusinessEntityId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
