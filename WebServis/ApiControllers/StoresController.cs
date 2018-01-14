@@ -24,8 +24,8 @@ namespace WebServis.ApiControllers
         [HttpGet]
         public IEnumerable<Store> GetStore([FromQuery] string query)
         {
-            if (query != null)
-                return _context.Store.Where(s => s.Name.Contains(query));
+            if (!string.IsNullOrEmpty(query))
+                return _context.Store.Include(s => s.SalesPerson).Where(s => s.Name.Contains(query));
 
             return _context.Store;
         }

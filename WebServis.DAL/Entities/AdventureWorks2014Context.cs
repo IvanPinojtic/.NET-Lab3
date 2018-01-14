@@ -79,14 +79,6 @@ namespace WebServis.DAL.Entities
         // Unable to generate entity type for table 'Production.ProductDocument'. Please see the warning messages.
         // Unable to generate entity type for table 'Production.Document'. Please see the warning messages.
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-V4F7KIQ;Initial Catalog=AdventureWorks2014;Integrated Security=True");
-            }
-        }
         public AdventureWorks2014Context() { }
         public AdventureWorks2014Context(DbContextOptions<AdventureWorks2014Context> options):base(options) { }
 

@@ -28,7 +28,7 @@ namespace WebServis
             services.AddMvc().AddJsonOptions(options => {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
-            services.AddDbContext<AdventureWorks2014Context>(options=>options.UseSqlServer(@"Data Source=DESKTOP-V4F7KIQ;Initial Catalog=AdventureWorks2014;Integrated Security=True"));
+            services.AddDbContext<AdventureWorks2014Context>(options=>options.UseSqlServer(Configuration.GetConnectionString("lab3database")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

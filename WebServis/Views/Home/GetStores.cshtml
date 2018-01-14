@@ -15,6 +15,7 @@
     <tr>
         <th>Name</th>
         <th>Id</th>
+        <th>Sales</th>
     </tr>
 </table>
 
@@ -40,14 +41,15 @@
 
     function toTable(data) {
         $('#table').empty();
-        $('#table').append('<tr><th>Name</th><th>Id</th></tr>');
+        $('#table').append('<tr><th>Name</th><th>Id</th><th>Sales</th></tr>');
         var i;
         var response = $.parseJSON(data);
         $(function () {
             $.each(response, function (i, item) {
                 var $tr = $('<tr>').append(
                     $('<td>').text(item.name),
-                    $('<td>').text(item.businessEntityId)
+                    $('<td>').text(item.businessEntityId),
+                    $('<td>').text(item.salesPerson.salesLastYear)
                 ).appendTo('#table');
             });
         });

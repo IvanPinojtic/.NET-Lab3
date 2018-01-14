@@ -24,10 +24,10 @@ namespace WebServis.ApiControllers
         [HttpGet]
         public IEnumerable<Person> GetPerson([FromQuery] string query)
         {
-
-            if (query != null)
+            if (!string.IsNullOrEmpty(query))
+            {
                 return _context.Person.Where(s => s.FirstName.Contains(query));
-
+            }
             return _context.Person;
         }
 
