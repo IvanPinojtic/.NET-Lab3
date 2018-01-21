@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace WebServis.ApiControllers
 {
     [Produces("application/json")]
     [Route("api/People")]
+    [Authorize]
     public class PeopleController : Controller
     {
         private readonly AdventureWorks2014Context _context;
@@ -22,13 +24,15 @@ namespace WebServis.ApiControllers
 
         // GET: api/People
         [HttpGet]
+        [AllowAnonymous]
         public IEnumerable<Person> GetPerson([FromQuery] string query)
         {
             if (!string.IsNullOrEmpty(query))
             {
-                return _context.Person.Where(s => s.FirstName.Contains(query));
+                return _context.Person.Include(s=>s.PersonPhone).Where(s => s.FirstName.Contains(query));
             }
-            return _context.Person;
+            var n= _context.Person.Include(s => s.PersonPhone).Where(p => p.PersonPhone.Count > 1);
+            return n;
         }
 
         // GET: api/People/5
