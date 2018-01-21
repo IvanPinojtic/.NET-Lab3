@@ -29,10 +29,10 @@ namespace WebServis.ApiControllers
         {
             if (!string.IsNullOrEmpty(query))
             {
-                return _context.Person.Include(s=>s.PersonPhone).Where(s => s.FirstName.Contains(query));
+                return _context.Person.Where(s => s.FirstName.Contains(query));
             }
-            var n= _context.Person.Include(s => s.PersonPhone).Where(p => p.PersonPhone.Count > 1);
-            return n;
+
+            return _context.Person;
         }
 
         // GET: api/People/5
