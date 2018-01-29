@@ -12,6 +12,7 @@ namespace WebServis.ApiControllers
 {
     [Produces("application/json")]
     [Route("api/People")]
+    [ApiVersion("1.0"), ApiVersion("1.1")]
     [Authorize]
     public class PeopleController : Controller
     {
@@ -32,7 +33,7 @@ namespace WebServis.ApiControllers
                 return _context.Person.Where(s => s.FirstName.Contains(query));
             }
 
-            return _context.Person;
+            return _context.Person.Take(20);
         }
 
         // GET: api/People/5
